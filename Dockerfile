@@ -3,10 +3,10 @@ FROM fedora:latest
 RUN dnf -y install python-pip mod_wsgi python-gunicorn && \
     dnf -y clean all && \
     pip install django && \
-    chmod a+rxw /home/ && \
     cd /home/ && \
     touch /home/gunicorn.logs && \
-    django-admin startproject sample
+    django-admin startproject sample && \
+    chmod a+rwx /home/
 
 EXPOSE 8080
 
